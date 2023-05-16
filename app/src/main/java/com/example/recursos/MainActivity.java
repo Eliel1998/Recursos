@@ -11,35 +11,25 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button buttonSMS;
+    private Button buttonWhats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonSMS = findViewById(R.id.buttonSms);
+        buttonWhats = findViewById(R.id.buttonWhatsapp);
     }//end onCreate
 
     public void clicar(View view) {
         Intent intent = null;
-        if (view.getId() == R.id.buttonSms) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(this);
-                intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Hello World!");
-                if (defaultSmsPackageName != null) {
-                    intent.setPackage(defaultSmsPackageName);
-                    startActivity(intent);
-                }
-            } else {
-                intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.putExtra(Intent.EXTRA_TEXT, "Hello World! 2");
-                intent.setType("vnd.android-dir/mms-sms");
-                startActivity(intent);
-            }
+        if (view.getId() == R.id.buttonWhatsapp) {
+            String msg = "Olá, tudo bem?";
+            intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, msg);
+            intent.setType("text/plain");
+            intent.setPackage("com.whatsapp");
+            startActivity(intent);
         }
     }
 }
