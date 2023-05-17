@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonCamera"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CLICK" >
-    </Button>
+        android:hint="Digite seu nome"
+        android:id="@+id/editTextNome"/>
 
-    <ImageView
-        android:id="@+id/imageViewCamera"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher" >
-    </ImageView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonProximo"
+        android:onClick="clicar"
+        android:text="próximo"/>
 
 </LinearLayout>
